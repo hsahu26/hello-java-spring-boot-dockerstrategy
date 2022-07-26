@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-# This build config will create jenkins job and refer Jenkinsfile in repo then that jenkins file will refer actaul build config ( BuildConfig-Docker-Build-Strategy.yaml ) which will use docker build strategy 
+# This build config will create jenkins job and refer Jenkinsfile in repo then that jenkins file will refer actaul build config ( BuildConfig-Docker-Binary-Build-Strategy.yaml ) which will use docker build strategy 
 # Once this created then it will be triggered if any changes happen in repo by using hello-java-spring-boot-ssh secret  
   name: hello-java-spring-boot-jenkinsstrategy-pipeline 
 spec:
