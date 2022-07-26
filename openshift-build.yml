@@ -12,6 +12,7 @@ items:
       to:
         kind: DockerImage
         name: docker.io/monodot/hello-java-spring-boot:latest
+        # above need to check
     source:
       # Expect a local directory to be streamed to OpenShift as a build source
       type: Binary
