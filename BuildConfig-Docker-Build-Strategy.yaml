@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: image.openshift.io/v1
+# This Image stream will be used for refer image which will be build by Dockerfile
+  kind: ImageStream
+  metadata:
+    labels:
+      build: openjdk
+      paas.delta.com/example: hello-java-spring-boot
+    name: hello-java-spring-boot
+  spec:
+    lookupPolicy:
+      local: true
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      app: hello-java-spring-boot
+      build: hello-java-spring-boot
+      paas.delta.com/example: hello-java-spring-boot
+    name: hello-java-spring-boot
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: hello-java-spring-boot:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      binary: {}
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+      type: Docker
+    successfulBuildsHistoryLimit: 5
