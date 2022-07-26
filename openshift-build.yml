@@ -12,7 +12,7 @@ items:
       to:
         kind: DockerImage
         name: docker.io/monodot/hello-java-spring-boot:latest
-        # above need to check, may be use push secretsh
+        # you may to configure secrets to push image on desire registry
     source:
       # Expect a local directory to be streamed to OpenShift as a build source
       type: Binary
